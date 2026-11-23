@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Candy Land Online 🍭</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="brand"><div>🍭🍬🍫</div><h1>Candy Land Online</h1><p>Play the sweetest race with your friends!</p></header>
+
+    <section id="setup" class="panel">
+      <label for="name">Your name</label>
+      <input id="name" maxlength="20" placeholder="Enter your name">
+      <p class="subhead">Choose your player character</p>
+      <div id="avatars" class="avatars">
+        <button class="avatar selected" data-avatar="🐰">🐰</button><button class="avatar" data-avatar="🐻">🐻</button>
+        <button class="avatar" data-avatar="🦄">🦄</button><button class="avatar" data-avatar="🍄">🍄</button>
+        <button class="avatar" data-avatar="🐸">🐸</button><button class="avatar" data-avatar="🐱">🐱</button>
+        <button class="avatar" data-avatar="🐼">🐼</button><button class="avatar" data-avatar="🐧">🐧</button>
+      </div>
+      <div class="setup-actions">
+        <button id="create" class="primary">Create Game 🍬</button>
+        <div class="join-row"><input id="room-code" placeholder="Room code"><button id="join" class="secondary">Join Game</button></div>
+      </div>
+      <p class="hint">Create a room and share the invite link with up to 3 friends.</p>
+    </section>
+
+    <section id="lobby" class="panel hidden">
+      <div class="room-head"><div><h2>Game Lobby</h2><p id="room-label" class="subhead"></p></div><span id="connection" class="status">Connecting…</span></div>
+      <p>Share this invite link with your friends:</p>
+      <div class="invite"><input id="invite-link" readonly><button id="copy" class="secondary">Copy Link</button></div>
+      <h3>Players <span id="player-count"></span></h3>
+      <div id="player-list" class="player-list"></div>
+      <p id="lobby-note" class="hint">Waiting for players to join…</p>
+      <button id="start-game" class="primary hidden">Start Game 🎲</button>
+      <button id="leave" class="plain">Leave room</button>
+    </section>
+
+    <section id="game" class="panel hidden">
+      <div class="game-top"><div><h2 id="game-title">Candy Race!</h2><p id="turn-text"></p></div><span id="game-status" class="status">In game</span></div>
+      <div class="dice-card"><div id="dice" class="dice">🎲</div><p id="roll-text">Waiting for the first roll…</p><button id="roll" class="primary roll">ROLL 🎲</button></div>
+      <div class="progress-wrap"><span id="progress-label">Race progress</span><div class="progress"><div id="progress"></div></div></div>
+      <div id="board" class="board" aria-label="Candy Land board"></div>
+      <div id="winner" class="winner hidden"><div class="big">🏰🎉🍭</div><h2 id="winner-title">We have a winner!</h2><p id="winner-text"></p></div>
+      <button id="leave-game" class="plain">Leave game</button>
+    </section>
+    <footer>Small private rooms • 2–4 players • No account required</footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
